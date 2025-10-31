@@ -1,0 +1,26 @@
+.recent-activity {
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.activity {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.success {
+  background: #e6ffed;
+  color: #155724;
+}
+
+.info {
+  background: #e8f4ff;
+  color: #004085;
+}
