@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import { UserContext } from "./context/UserContext";
+import { getUserFromStorage, saveUserToStorage, removeUserFromStorage } from "./utils/localStorageUtils";
+import Header from "./components/Header";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = getUserFromStorage();
+    if (storedUser) {
+      setCurrentUser(storedUser);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentUser) saveUserToStorage(currentUser);
+  }, [currentUser]);
+
+  const handleLogin = (username, email) => {
+    const user = { username, email, lastLogin: new Date().toLocaleString() };
+    setCurrentUser(user);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+    removeUserFromStorage();
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <UserContext.Provider value={{ isLoggedIn, currentUser, handleLogin, handleLogout }}>
+      <div className="app-container">
+        <Header />
+        {!isLoggedIn ? <Login /> : <Dashboard />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </UserContext.Provider>
+  );
+};
 
-export default App
+export default App;
