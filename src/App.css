@@ -1,0 +1,50 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login, .dashboard, .write, .error {
+  text-align: center;
+  padding: 30px;
+}
+
+input, textarea {
+  display: block;
+  width: 60%;
+  margin: 10px auto;
+  padding: 8px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.error h1 {
+  font-size: 5rem;
+}

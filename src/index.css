@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem 3rem;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  color: #333;
+  margin-bottom: 1.2rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056d2;
+  transform: translateY(-2px);
+}
+
+.dashboard {
+  max-width: 700px;
+  margin: 60px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard h2 {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard ul {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+.dashboard li {
+  background: #f8f9fa;
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.dashboard li strong {
+  color: #007bff;
+}
+
+.error-page {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.error-page h1 {
+  font-size: 3rem;
+  color: #ff4b5c;
+  margin-bottom: 0.5rem;
+}
+
+.error-page p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.error-page button {
+  background: #007bff;
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
