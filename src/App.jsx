@@ -11,6 +11,7 @@ function App() {
     <div>
       <Header />
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user/:id" element={<Dashboard />} />
         <Route path="/write" element={<WriteArticle />} />
